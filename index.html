@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DB Journey</title>
+  <meta name="description" content="40 days, ~35 minutes a day: hands-on PostgreSQL for backend developers." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='10' fill='%230a0a0a'/><text x='16' y='21' font-family='Arial' font-weight='800' font-size='13' fill='white' text-anchor='middle'>DB</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
+  <link rel="stylesheet" href="src/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#/">
+        <span class="brand-mark">DB</span>
+        <span><strong>DB Journey</strong><small>Query it. Explain it. Own it.</small></span>
+      </a>
+      <section class="journey-card glass" id="journeyCard"></section>
+      <nav class="week-list" id="weekList" aria-label="Weeks"></nav>
+      <div class="side-links">
+        <a class="footer-link" href="#/playground" data-nav="playground">
+          <svg class="icon" viewBox="0 0 24 24"><path d="m4 17 6-6-6-6M12 19h8"/></svg>SQL Playground</a>
+        <button class="footer-link" id="tablesBtn">
+          <svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>Practice tables</button>
+      </div>
+      <p class="sidebar-note">No streak pressure. No locked days. Pick up wherever you are.</p>
+    </aside>
+
+    <main class="main" id="app"></main>
+  </div>
+
+  <div id="dbStatus" class="dbstatus glass"><span class="dot"></span><span class="txt">Starting Postgres in your browser…</span></div>
+
+  <aside id="tablesDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div><p class="eyebrow">Practice database</p><h3>Tables</h3></div>
+      <button class="icon-button" id="tablesClose" aria-label="Close"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div id="tablesBody" class="drawer-body"><p class="muted">Loading…</p></div>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

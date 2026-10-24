@@ -1,0 +1,15 @@
+{
+  "name": "db-journey",
+  "version": "1.0.0",
+  "description": "40-day hands-on PostgreSQL course",
+  "scripts": {
+    "validate": "node tools/validate.mjs",
+    "seed": "node tools/gen-seed.mjs",
+    "dev": "npx --yes serve@14.2.4 -l 5173 ."
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.8"
+  },
+  "type": "module",
+  "private": true
+}
